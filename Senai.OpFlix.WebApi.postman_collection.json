@@ -1,0 +1,676 @@
+{
+	"info": {
+		"_postman_id": "06d2bc20-2a17-4ec9-bb91-3089a9f32a54",
+		"name": "Senai.OpFlix.WebApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "Categorias.Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5NzQ3NiwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.L4OusQ-xCg1C7XUHKizmtys6r8CwupbkFRSyJ_46dc8"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:52798/api/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5NzQ3NiwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.L4OusQ-xCg1C7XUHKizmtys6r8CwupbkFRSyJ_46dc8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeCategoria\" : \"Ficção Mágica\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODEyNjExOCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.Thwo0xCu6PjC1C6OWl8KdzI5zsGf20pyg4cjE7h73pc"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeCategoria\" : \"Para Crianças\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/categorias/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"categorias",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODEyNjExOCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.Thwo0xCu6PjC1C6OWl8KdzI5zsGf20pyg4cjE7h73pc"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/categorias/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"categorias",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favoritos",
+			"item": [
+				{
+					"name": "Favoritos.Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5NDc3MCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.h7ADfys6e8DjJLKfc8auwEQFkWUbTLoE58T910uBbNU"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:52798/api/favoritos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"favoritos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Favoritos.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5MDk5NCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.P_eOjGsaJUnWXtLB_f4xC-goKTYd_9eBuvo6CQH8loQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idMidia\" : 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/favoritos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"favoritos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Favoritos.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5MDk5NCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.P_eOjGsaJUnWXtLB_f4xC-goKTYd_9eBuvo6CQH8loQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idMidia\" : 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/favoritos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"favoritos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login.Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"cassiana@email.com\",\n\t\"senha\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Midias",
+			"item": [
+				{
+					"name": "Midias.Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5NDc3MCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.h7ADfys6e8DjJLKfc8auwEQFkWUbTLoE58T910uBbNU"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:52798/api/midias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"midias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Midias.BuscarPorMes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5MDk5NCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.P_eOjGsaJUnWXtLB_f4xC-goKTYd_9eBuvo6CQH8loQ"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:52798/api/midias/BuscarPorMes/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"midias",
+								"BuscarPorMes",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Midias.BuscarPorPlataforma",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5MDk5NCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.P_eOjGsaJUnWXtLB_f4xC-goKTYd_9eBuvo6CQH8loQ"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:52798/api/midias/BuscarPorPlataforma/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"midias",
+								"BuscarPorPlataforma",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Midias.Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5MDk5NCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.P_eOjGsaJUnWXtLB_f4xC-goKTYd_9eBuvo6CQH8loQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"titulo\" : \"Rei Leão\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/midias/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"midias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Midias.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5NDc3MCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.h7ADfys6e8DjJLKfc8auwEQFkWUbTLoE58T910uBbNU"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/midias/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"midias",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Midias.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5NzQ3NiwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.L4OusQ-xCg1C7XUHKizmtys6r8CwupbkFRSyJ_46dc8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Titulo\" : \"Harry Potter\",\r\n    \"Sinopse\" : \"Bruxos e poderes\",\r\n    \"TempoDuracao\" : \"120\",\r\n    \"DataLancamento\" : \"1998-06-26\",\r\n    \"IdClassificacao\" : 2,\r\n    \"IdCategoria\" : 6,\r\n    \"IdVeiculo\" : 2,\r\n    \"IdTipo\" : 1\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/midias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"midias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Usuarios.Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODEyNjExOCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.Thwo0xCu6PjC1C6OWl8KdzI5zsGf20pyg4cjE7h73pc"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:52798/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODY0NDM4NywiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.Tvvltv4vR6cFJBVsrcY9-MCyAY4DGYvuafVYH63YLUA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Cássio Cancio\",\n\t\"email\":\"cassio.acancio@gmail.com\",\n\t\"senha\":\"12345678\",\n\t\"TipoUsuario\":\"ADMINISTRADOR\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.Deletar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODY0NDM4NywiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.Tvvltv4vR6cFJBVsrcY9-MCyAY4DGYvuafVYH63YLUA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:52798/api/usuarios/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"usuarios",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Veiculos",
+			"item": [
+				{
+					"name": "Veiculos.Listar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5NzQ3NiwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.L4OusQ-xCg1C7XUHKizmtys6r8CwupbkFRSyJ_46dc8"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:52798/api/veiculos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Veiculos.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5ODc0NCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.1u7Edv0Xlb3aDlg8ggjbsyMSEggrBKuLAG-mOv3dBn4"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeVeiculo\" : \"DVD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/veiculos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Veiculos.Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5ODc0NCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.1u7Edv0Xlb3aDlg8ggjbsyMSEggrBKuLAG-mOv3dBn4"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeVeiculo\" : \"Mídias Físicas\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/veiculos/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"veiculos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Veiculos.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImNoYXZlIjoidmFsb3IiLCJqdGkiOiIyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU5JU1RSQURPUiIsImV4cCI6MTU2ODI5ODc0NCwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.1u7Edv0Xlb3aDlg8ggjbsyMSEggrBKuLAG-mOv3dBn4"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:52798/api/veiculos/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52798",
+							"path": [
+								"api",
+								"veiculos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

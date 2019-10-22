@@ -1,0 +1,18 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\pages",
+    "\\src\\pages\\Cadastro",
+    "\\src\\pages\\Categorias",
+    "\\src\\pages\\EditorLancamento",
+    "\\src\\pages\\Favoritos",
+    "\\src\\pages\\Home",
+    "\\src\\pages\\Lancamentos",
+    "\\src\\pages\\Login",
+    "\\src\\pages\\Selecao",
+    "\\src\\pages\\Usuarios"
+  ],
+  "SelectedNode": "\\src\\index.js",
+  "PreviewInSolutionExplorer": false
+}
