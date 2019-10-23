@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import '../../assets/css/index.css';
 
 //axios
 import Axios from 'axios';
 
 import Rodape from '../../components/Rodape/Rodape'
-import Nav from '../../components/Nav/Nav';
+import Nav from '../../components/NavNaoLogado/Nav';
 
 class Login extends Component {
 

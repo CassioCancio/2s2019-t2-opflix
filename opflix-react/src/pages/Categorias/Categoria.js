@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './index.css';
+import '../../assets/css/index.css';
 import Rodape from '../../components/Rodape/Rodape';
-import Nav from '../../components/Nav/Nav';
+import Nav from '../../components/NavADM/Nav';
 
 //realizar import dos estilos
 //import '../../assets/css/flexbox.css';
@@ -74,6 +74,7 @@ class Categoria extends Component {
     render() {
         return (
             <div>
+                <Nav />
                 <h1>Categorias Cadastradas</h1>
 
                 <div className="container" id="conteudoPrincipal-lista">

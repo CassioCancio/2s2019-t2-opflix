@@ -14,12 +14,11 @@ namespace Senai.OpFlix.WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    [Authorize]
-    public class TiposController : ControllerBase
+    public class TipoController : ControllerBase
     {
         private ITipoRepository TipoRepository { get; set; }
 
-        public TiposController()
+        public TipoController()
         {
             TipoRepository = new TipoRepository();
         }

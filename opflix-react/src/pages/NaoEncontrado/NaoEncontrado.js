@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Rodape from '../../components/Rodape/Rodape';
-import Nav from '../../components/Nav/Nav';
+import Nav from '../../components/NavNaoLogado/Nav';
+import '../../assets/css/index.css';
 
 class NaoEncontrado extends Component {
     render() {

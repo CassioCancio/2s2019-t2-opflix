@@ -1,0 +1,136 @@
+html{
+  margin: none;
+}
+h1{
+  color: #005DFF;
+  text-align: center;
+  text-shadow: 1px 1px 1px black,
+              -1px 1px 1px black,
+              1px -1px 1px black,
+              -1px -1px 1px black;
+  margin-top: 12.5vh;
+  margin-bottom: 7vh;
+  font-size: 3em;
+}
+
+.transform{
+  text-transform: uppercase;
+  font-size: 4em;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  height: 6vh;
+  width: 100%;
+  background-color: white;
+  box-shadow: 1px 1px 8px rgb(93, 93, 93)
+}
+
+nav > div > a {
+  color: #005DFF;
+  text-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  padding: 0 20px;
+  text-decoration: none;
+  font-size: 1.4em
+}
+nav > div > h4 {
+  font-size: 1.4em;
+  font-weight: bold
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexSpaceAround{
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.logo{
+  width: 15%;
+  margin-right: 6%;
+}
+
+.logoADM{
+  width: 6%;
+  margin-right: 2%;
+}
+
+.logoComum{
+  width: 10%;
+  margin-right: 3%;
+}
+
+.espacoHome > img {
+  width: 40%;
+  margin: 25% 30% 0% 30%;
+}
+
+.espacoHome{
+  width: 40%;
+}
+
+.espacoHome > h2 {
+  text-align: center;
+
+}
+
+.rodape{
+  box-shadow: 1px 1px 8px rgb(93, 93, 93);
+  text-align: center;
+}
+
+.rodape > p {
+  text-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  color: #005DFF;
+  font-size: 1.4em;
+  font-weight: bolder;
+  padding-top: 1vh;
+  margin-bottom: 0%
+}
+
+.rodape > div > div {
+  font-size: 1.1em;
+  width: 30%;
+  font-weight: bolder;
+}
+
+.homeLimitador2 > img{
+  width: 100%;
+}
+
+.homeLimitador{
+  text-align: justify;
+  width: 30%
+}
+
+.limiteHome > h2{
+  text-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  color: #005DFF;
+}
+
+.homeLimitador2{
+  text-align: justify;
+  width: 55%
+}
+
+.limiteHome{
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+}

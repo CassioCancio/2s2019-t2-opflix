@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './index.css';
+import '../../assets/css/index.css';
 import Rodape from '../../components/Rodape/Rodape';
-import Nav from '../../components/Nav/Nav';
+import Nav from '../../components/NavComum/Nav';
 
 //realizar import dos estilos
 //import '../../assets/css/flexbox.css';

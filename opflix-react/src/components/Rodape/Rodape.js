@@ -1,19 +1,20 @@
 import React from 'react';
 
-function Rodape(){
-    return(
-        <footer className="rodapePrincipal">
-            <section className="rodapePrincipal-patrocinadores">
-                <div className="container">
-                    <img src=""/>
-                    <p>OPFLIX</p>
-                </div>
-                <div className="container">
+function Rodape() {
+    return (
+        <footer className="rodape">
+            <p>OPFLIX</p>
+            <div className="flexSpaceAround">
+                <div>
                     <p>Opflix@gmail.com</p>
+                </div>
+                <div>
                     <p>(11) 9XXXX - XXXX</p>
+                </div>
+                <div>
                     <p>@OpFlix</p>
                 </div>
-            </section>
+            </div>
         </footer>
     );
 }

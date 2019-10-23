@@ -1,6 +1,6 @@
-import './index.css';
 import Rodape from '../../components/Rodape/Rodape'
-import Nav from '../../components/Nav/Nav';
+import Nav from '../../components/NavNaoLogado/Nav';
+import '../../assets/css/index.css';
 
 import React, { Component } from 'react';
 
@@ -13,7 +13,7 @@ class Cadastro extends Component {
         this.state = {
             email: "",
             nome: "",
-            tipousuario: "COMUM",
+            tipousuario: "CLIENTE",
             senha: "",
             erro: ""
         }
@@ -42,8 +42,7 @@ class Cadastro extends Component {
         })
             .then(response => {
                 if (response.status === 200) {
-                    console.log(response.data.token);
-                    localStorage.setItem("usuario-opflix", response.data.token);
+                    console.log("ok");
                     this.props.history.push('/');
                 } else {
                     console.log('vish deu ruim');

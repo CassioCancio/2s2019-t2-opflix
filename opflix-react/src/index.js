@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import Home from './pages/Home/App';
+import Home from './pages/Home/Home';
 import Categoria from './pages/Categorias/Categoria';
 import NaoEncontrado from './pages/NaoEncontrado/NaoEncontrado';
 import Login from './pages/Login/Login';
@@ -27,7 +27,7 @@ const RotaPrivada = ({ component: Component }) => (
         render={props =>
             localStorage.getItem('usuario-opflix') !== null ? (
                 parseJwt().Permissao === "CLIENTE" ? (
-                <SelecaoComum {...props} />
+                <Lancamentos {...props} />
             ) : 
             
             (

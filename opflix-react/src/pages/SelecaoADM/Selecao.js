@@ -1,5 +1,5 @@
-import React,{Component} from 'react';
-import './index.css';
+import React, { Component } from 'react';
+import '../../assets/css/index.css';
 
 //realizar import dos estilos
 //import '../../assets/css/flexbox.css';
@@ -10,25 +10,30 @@ import './index.css';
 //imagem 
 //import logo from '../../assets/img/icon-login.png';
 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Selecao extends Component {
 
-  constructor() {
-      super();
-      this.state = {
-          categoria: ""
-      }
-  }
+    constructor() {
+        super();
+        this.state = {
+            categoria: ""
+        }
+    }
 
- 
-  render() {
-      return (
-          <div>
-              <h1>Administrador</h1>
-          </div>
-      );
-  }
+
+    render() {
+        return (
+            <div>
+                <h1>Administrador</h1>
+                <div>
+                    <Link to="/categorias">Categorias</Link>
+                    <Link to="/editor">Editor de Lançamentos</Link>
+                    <Link to="/usuarios">Usuários</Link>
+                </div>
+            </div>
+        );
+    }
 
 }
 

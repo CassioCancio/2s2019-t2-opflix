@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './index.css';
+import '../../assets/css/index.css';
 import Rodape from '../../components/Rodape/Rodape';
-import Nav from '../../components/Nav/Nav';
+import Nav from '../../components/NavADM/Nav';
 
 //realizar import dos estilos
 //import '../../assets/css/flexbox.css';
@@ -25,7 +25,16 @@ class EditorLancamento extends Component {
             listaClassificacao: [],
             listaCategoria: [],
             listaVeiculo: [],
-            listaTipo: [],
+            listaTipo: [
+                {
+                    idTipo: "1",
+                    nomeTipo: "Filme"
+                },
+                {
+                    idTipo: "2",
+                    nomeTipo: "Série"
+                }
+            ],
             titulo: '',
             sinopse: '',
             tempoDuracao: '',
@@ -36,36 +45,44 @@ class EditorLancamento extends Component {
             idTipo: '',
         }
     }
-
-    adicionaItem = (event) => {
-        console.log(this.state.nome);
-        fetch('http://localhost:52798/api/midias', {
-            method: "POST",
-            body: JSON.stringify({
-                titulo: this.state.nome
-            }),
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": 'Bearer ' + localStorage.getItem('usuario-opflix')
-            },
-        })
-            .then(this.tabelaAtualizada())
-            .catch(error => console.log(error))
-    }
-
-    atualizarNome = (event) => {
-        this.setState({ nome: event.target.value })
+    atualizaEstadoTitulo = (event) => {
+        this.setState({ titulo: event.target.value })
         console.log(this.state);
     }
-
+    atualizaEstadoSinopse = (event) => {
+        this.setState({ sinopse: event.target.value })
+        console.log(this.state);
+    }
+    atualizaEstadoTempo = (event) => {
+        this.setState({ tempoDuracao: event.target.value })
+        console.log(this.state);
+    }
+    atualizaEstadoDataLancamento = (event) => {
+        this.setState({ Datalancamento: event.target.value })
+        console.log(this.state);
+    }
+    atualizaEstadoCategoria = (event) => {
+        this.setState({ idCategoria: event.target.value })
+        console.log(this.state);
+    }
+    atualizaEstadoClassificacao = (event) => {
+        this.setState({ idClassificacao: event.target.value })
+        console.log(this.state);
+    }
+    atualizaEstadoTipo = (event) => {
+        this.setState({ idTipo: event.target.value })
+        console.log(this.state);
+    }
+    atualizaEstadoVeiculo = (event) => {
+        this.setState({ idVeiculo: event.target.value })
+        console.log(this.state);
+    }
     componentDidMount() {
         this.tabelaAtualizada();
         this.listaCategoria();
         this.listaClassificacao();
-        this.listaTipo();
         this.listaVeiculo();
     }
-
     tabelaAtualizada = () => {
         fetch('http://localhost:52798/api/midias', {
             headers: {
@@ -76,7 +93,6 @@ class EditorLancamento extends Component {
             .then(response => response.json())
             .then(data => this.setState({ lista: data }));
     }
-
     listaCategoria = () => {
         fetch('http://localhost:52798/api/categorias', {
             headers: {
@@ -87,7 +103,6 @@ class EditorLancamento extends Component {
             .then(response => response.json())
             .then(data => this.setState({ listaCategoria: data }));
     }
-
     listaClassificacao = () => {
         fetch('http://localhost:52798/api/classificacoes', {
             headers: {
@@ -98,7 +113,6 @@ class EditorLancamento extends Component {
             .then(response => response.json())
             .then(data => this.setState({ listaClassificacao: data }));
     }
-
     listaVeiculo = () => {
         fetch('http://localhost:52798/api/veiculos', {
             headers: {
@@ -109,35 +123,28 @@ class EditorLancamento extends Component {
             .then(response => response.json())
             .then(data => this.setState({ listaVeiculo: data }));
     }
-
-    listaTipo = () => {
-        fetch('http://localhost:52798/api/tipos', {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": 'Bearer ' + localStorage.getItem('usuario-opflix')
-            },
-        })
-            .then(response => response.json())
-            .then(data => this.setState({ listaTipo: data }));
-            console.log(this.listaTipo)
-    }
-
     efetuarCadastro = (event) => {
         Axios.post("http://localhost:52798/api/midias", {
             titulo: this.state.titulo,
             sinopse: this.state.sinopse,
             tempoDuracao: this.state.tempoDuracao,
             Datalancamento: this.state.Datalancamento,
-            idClassificacao: this.idClassificacao,
+            idClassificacao: this.state.idClassificacao,
             idCategoria: this.state.idCategoria,
             idVeiculo: this.state.idVeiculo,
-            idTipo: this.state.idTipo
-        })
+            idTipo: this.state.idTipo,
+        },
+        {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": 'Bearer ' + localStorage.getItem('usuario-opflix')
+            }
+        }
+        )
             .then(response => {
                 if (response.status === 200) {
-                    console.log(response.data.token);
-                    localStorage.setItem("usuario-opflix", response.data.token);
-                    this.props.history.push('/');
+                    console.log('Ok');
+                    this.props.history.push('/usuarios');
                 } else {
                     console.log('vish deu ruim');
                 }
@@ -186,45 +193,49 @@ class EditorLancamento extends Component {
                 </table>
 
                 <h1>Cadastro de Lançamentos</h1>
-                <form onSubmit={this.efetuarCadastro}>
+                <form method="POST" onSubmit={this.efetuarCadastro}>
                     <div className="item">
                         <input
                             className="input__login"
-                            onInput={this.atualizaEstadoNome}
+                            onInput={this.atualizaEstadoTitulo}
                             type="text"
                             name="username"
+                            placeholder="Título"
                             id="login__email"
                         />
                     </div>
                     <div className="item">
                         <input
                             className="input__login"
-                            onInput={this.atualizaEstadoEmail}
+                            onInput={this.atualizaEstadoSinopse}
                             type="text"
                             name="username"
+                            placeholder="Sinopse"
                             id="login__email"
                         />
                     </div>
                     <div className="item">
                         <input
                             className="input__login"
-                            onInput={this.atualizaEstadoSenha}
-                            type="password"
+                            onInput={this.atualizaEstadoTempo}
+                            type="number"
                             name="password"
+                            placeholder="Tempo de Duração"
                             id="login__password"
                         />
                     </div>
                     <div className="item">
                         <input
                             className="input__login"
-                            onInput={this.atualizaEstadoSenha}
-                            type="password"
+                            onInput={this.atualizaEstadoDataLancamento}
+                            type="date"
                             name="password"
+                            placeholder="Data de lançamento"
                             id="login__password"
                         />
                     </div>
                     <div>
-                        <select>
+                        <select onInput={this.atualizaEstadoCategoria}>
                         {this.state.listaCategoria.map(element => {
                             return (
                                 <option value={element.idCategoria}>{element.nomeCategoria}</option>
@@ -233,7 +244,7 @@ class EditorLancamento extends Component {
                         </select>
                     </div>
                     <div>
-                        <select>
+                        <select onInput={this.atualizaEstadoClassificacao}>
                         {this.state.listaClassificacao.map(element => {
                             return (
                                 <option value={element.idClassificacao}>{element.nomeClassificacao}</option>
@@ -242,7 +253,7 @@ class EditorLancamento extends Component {
                         </select>
                     </div>
                     <div>
-                        <select>
+                        <select onInput={this.atualizaEstadoVeiculo}>
                         {this.state.listaVeiculo.map(element => {
                             return (
                                 <option value={element.idVeiculo}>{element.nomeVeiculo}</option>
@@ -251,7 +262,7 @@ class EditorLancamento extends Component {
                         </select>
                     </div>
                     <div>
-                        <select>
+                        <select onInput={this.atualizaEstadoTipo}>
                         {this.state.listaTipo.map(element => {
                             return (
                                 <option value={element.idTipo}>{element.nomeTipo}</option>
@@ -260,8 +271,11 @@ class EditorLancamento extends Component {
                         </select>
                     </div>
                     <div className="item">
-                        <button className="btn btn__login" id="btn__login">
-                            Fazer Cadastro
+                    <button 
+                    className="btn btn__login" 
+                    onClick={this.efetuarCadastro}
+                    id="btn__login">
+                        Fazer Cadastro
                     </button>
                     </div>
                 </form>
