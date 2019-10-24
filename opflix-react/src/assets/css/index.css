@@ -134,3 +134,57 @@ nav > div > h4 {
   width: 90%;
   text-align: center;
 }
+
+label{
+  font-size: 1.5em;
+  padding-bottom: 5vh;
+  font-weight: bold;
+}
+
+input{
+  box-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  height: 4vh;
+  width: 80%;
+  border-radius: 50px;
+  
+}
+
+button{
+  box-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  height: 4vh;
+  width: 80%;
+  margin: 10vh 0 0 0;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.centralizarForm{
+  box-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  text-align: center;
+  width: 25%;
+  height: 57vh;
+  border-radius: 50px;
+  margin: 16vh auto 14.6vh auto
+  
+}
+
+.centralizarForm > h1{
+  padding-top: 5vh
+}
+
+.selecaoADM > div > a{
+  box-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+}

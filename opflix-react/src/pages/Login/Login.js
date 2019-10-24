@@ -54,8 +54,8 @@ class Login extends Component {
                 <Nav />
                 <div>
 
+                    <form onSubmit={this.efetuarLogin} className="centralizarForm">
                     <h1>Login</h1>
-                    <form onSubmit={this.efetuarLogin}>
                         <div className="item">
                             <label>E-mail</label><br />
                             <input

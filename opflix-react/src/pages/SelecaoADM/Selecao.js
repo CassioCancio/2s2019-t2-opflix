@@ -24,7 +24,7 @@ class Selecao extends Component {
 
     render() {
         return (
-            <div>
+            <div className="selecaoADM">
                 <h1>Administrador</h1>
                 <div>
                     <Link to="/categorias">Categorias</Link>
