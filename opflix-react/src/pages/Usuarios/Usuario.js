@@ -120,9 +120,9 @@ class Usuario extends Component {
                         </tbody>
                     </table>
                     
-                    <h1>Cadastro de usuários</h1>
 
-                    <form method="" onSubmit={this.efetuarCadastro}>
+                    <form method="" onSubmit={this.efetuarCadastro} className="arrumarForm">
+                    <h1>Cadastro de usuários</h1>
                         <div className="item">
                             <input
                                 className="input__login"

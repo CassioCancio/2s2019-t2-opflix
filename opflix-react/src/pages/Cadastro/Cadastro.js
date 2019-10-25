@@ -59,8 +59,8 @@ class Cadastro extends Component {
             <div>
                 <Nav />
                 <div>
+                    <form onSubmit={this.efetuarCadastro} className="centralizarForm">
                     <h1>Cadastro</h1>
-                    <form onSubmit={this.efetuarCadastro}>
                         <div className="item">
                             <input
                                 className="input__login"

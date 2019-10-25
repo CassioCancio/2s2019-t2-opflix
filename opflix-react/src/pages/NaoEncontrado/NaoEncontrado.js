@@ -8,7 +8,10 @@ class NaoEncontrado extends Component {
         return (
             <div>
             <Nav />
+            <div className="Erro">
             <h1>404</h1>
+            <p>Não encontrado</p>
+            </div>
             <Rodape />
             </div>
         )

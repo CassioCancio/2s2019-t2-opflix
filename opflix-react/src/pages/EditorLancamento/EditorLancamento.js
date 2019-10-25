@@ -166,7 +166,7 @@ class EditorLancamento extends Component {
                         <tr>
                             <th>#</th>
                             <th>Título</th>
-                            <th>Sinopse</th>
+                            <th className="sinopse">Sinopse</th>
                             <th>Tempo de duração</th>
                             <th>Classificação indicativa</th>
                             <th>Categoria</th>
@@ -185,7 +185,6 @@ class EditorLancamento extends Component {
                                     <td>{(element.idClassificacaoNavigation === undefined) ? '' : element.idClassificacaoNavigation.nomeClassificacao} </td>
                                     <td>{(element.idCategoriaNavigation === undefined) ? '' : element.idCategoriaNavigation.nomeCategoria}</td>
                                     <td>{(element.idVeiculoNavigation === undefined) ? '' : element.idVeiculoNavigation.nomeVeiculo}</td>
-                                    <td>{(element.idTipoNavigation === undefined) ? '' : element.idTipoNavigation.nomeTipo}</td>
                                 </tr>
                             )
                         })}
@@ -193,7 +192,7 @@ class EditorLancamento extends Component {
                 </table>
 
                 <h1>Cadastro de Lançamentos</h1>
-                <form method="POST" onSubmit={this.efetuarCadastro}>
+                <form method="POST" onSubmit={this.efetuarCadastro} className="arrumarForm">
                     <div className="item">
                         <input
                             className="input__login"

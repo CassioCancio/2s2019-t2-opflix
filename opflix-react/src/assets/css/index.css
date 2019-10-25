@@ -89,6 +89,20 @@ nav > div > h4 {
   text-align: center;
 }
 
+.Erro{
+  text-align: center;
+}
+.Erro h1 {
+  margin: 31.8vh 0 0 0;
+  font-size: 7em;
+}
+
+.Erro p {
+  margin: 0 0 31.7vh 0;
+  font-size: 2em;
+  font-weight: bold
+}
+
 .rodape > p {
   text-shadow: 1px 1px 1px rgb(49, 49, 49),
   -1px 1px 1px rgb(49, 49, 49),
@@ -149,7 +163,18 @@ input{
   height: 4vh;
   width: 80%;
   border-radius: 50px;
-  
+  padding-left: 7px;
+}
+
+select{
+  box-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  height: 4.7vh;
+  width: 80.8%;
+  border-radius: 50px;
+  padding-left: 7px;
 }
 
 button{
@@ -178,8 +203,24 @@ button{
   
 }
 
+.centralizarForm2{
+  box-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  text-align: center;
+  width: 25%;
+  height: 57vh;
+  margin: 16vh auto 14.6vh auto;
+  border-radius: 50px;
+}
+
 .centralizarForm > h1{
   padding-top: 5vh
+}
+
+.selecaoADM h1{
+  margin: 12vh 0 2vh 0;
 }
 
 .selecaoADM > div > a{
@@ -187,4 +228,61 @@ button{
   -1px 1px 1px rgb(49, 49, 49),
   1px -1px 1px rgb(49, 49, 49),
   -1px -1px 1px rgb(49, 49, 49);
+  text-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  padding: 15% 3%;
+  margin: 1% -9%;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #005DFF;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.selecaoADM > div {
+  display: flex;
+  justify-content: space-evenly
+}
+
+table{
+  width: 90%;
+  margin: 0 auto 10vh auto;
+  text-align: left;
+  align-content: initial
+}
+
+th{
+  box-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  padding: 0 1%;
+  background-color: #005DFF;
+  color: white
+}
+
+td{
+  box-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  padding: 1vh 1%;
+}
+
+.sinopse{
+  width: 40%;
+}
+
+.arrumarForm{
+  text-align: center
+}
+
+.arrumarForm button{
+  margin: 4vh 0 5vh 0
+}
+
+.arrumarForm input,select{
+  margin: 0.5vh 0;
 }

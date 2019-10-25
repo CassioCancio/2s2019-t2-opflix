@@ -50,8 +50,8 @@ class Lancamento extends Component {
                             <tr>
                                 <th>#</th>
                                 <th>Título</th>
-                                <th>Sinopse</th>
-                                <th>Tempo de duração</th>
+                                <th className="sinopse">Sinopse</th>
+                                <th>Duração (min)</th>
                                 <th>Classificação indicativa</th>
                                 <th>Categoria</th>
                                 <th>Veículo</th>

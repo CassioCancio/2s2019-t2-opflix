@@ -100,10 +100,8 @@ class Categoria extends Component {
                 </div>
 
                 <div className="container" id="conteudoPrincipal-cadastro">
-                    <h2 className="conteudoPrincipal-cadastro-titulo">
-                        Cadastrar Categoria
-                        </h2>
-                    <form>
+                    <form className="arrumarForm">
+                    <h1 className="caracteristicas">Cadastrar Categoria</h1>
                         <div className="container">
                             <input
                                 type="text"
