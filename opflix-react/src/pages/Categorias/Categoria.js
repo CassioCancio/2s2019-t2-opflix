@@ -107,7 +107,7 @@ class Categoria extends Component {
                                 type="text"
                                 className="className__categoria"
                                 id="input__categoria"
-                                placeholder="tipo do evento"
+                                placeholder="Digite o nome da categoria"
                                 value={this.state.nome}
                                 onInput={this.atualizarNome}
                             />
