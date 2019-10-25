@@ -10,8 +10,6 @@ import NaoEncontrado from './pages/NaoEncontrado/NaoEncontrado';
 import Login from './pages/Login/Login';
 import Lancamentos from './pages/Lancamentos/Lancamento';
 import EditorLancamento from './pages/EditorLancamento/EditorLancamento';
-import Favorito from './pages/Favoritos/Favorito';
-import SelecaoComum from './pages/SelecaoComum/Selecao';
 import SelecaoADM from './pages/SelecaoADM/Selecao';
 import Usuario from './pages/Usuarios/Usuario';
 import Cadastro from './pages/Cadastro/Cadastro';
@@ -81,8 +79,7 @@ const routing = (
                 <PermissaoADM path='/categorias' component={Categoria} />
                 <PermissaoComum path='/lancamentos' component={Lancamentos} />
                 <PermissaoADM path='/editor' component={EditorLancamento} />
-                <PermissaoComum path='/favorito' component={Favorito} />
-                <RotaPrivada path='/selecao' component={SelecaoComum} />
+                <RotaPrivada path='/selecao' component={SelecaoADM} />
                 <PermissaoADM path='/usuarios' component={Usuario} />
                 <Route path='/login' component={Login} />
                 <Route path='/cadastro' component={Cadastro} />

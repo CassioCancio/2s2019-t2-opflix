@@ -65,10 +65,7 @@ class Login extends Component {
                                 name="username"
                                 id="login__email"
                             />
-                            <p
-                                className="text__login"
-                                style={{ color: "red", textAlign: "center" }}
-                            >
+                            <p className="text__login" style={{ color: "red", textAlign: "center" }}>
                                 {this.state.erro}
                             </p>
                         </div>

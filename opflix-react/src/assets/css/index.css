@@ -286,3 +286,9 @@ td{
 .arrumarForm input,select{
   margin: 0.5vh 0;
 }
+
+.text__login{
+  position: fixed;
+  top: 55vh;
+  left: 44%;
+}
