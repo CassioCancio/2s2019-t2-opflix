@@ -64,6 +64,14 @@ namespace Senai.OpFlix.WebApi.Repositories
             }
         }
 
+        public List<Midias> FiltrarCategoria(int id)
+        {
+            using (OpflixContext ctx = new OpflixContext())
+            {
+                return ctx.Midias.Include(x => x.IdCategoriaNavigation).Include(x => x.IdClassificacaoNavigation).Include(x => x.IdTipoNavigation).Include(x => x.IdVeiculoNavigation).Where(x => x.IdCategoria == id).ToList();
+            }
+        }
+
         public List<Midias> BuscarPorPlataforma(int IdVeiculo)
         {
             using (OpflixContext ctx = new OpflixContext())

@@ -34,6 +34,18 @@ namespace Senai.OpFlix.WebApi.Controllers
             return Ok(MidiaRepository.Listar());
         }
 
+        [HttpGet("filtrarCategoria")]
+        public IActionResult ListarTodos()
+        {
+            return Ok(MidiaRepository.Listar());
+        }
+
+        [HttpGet("filtrarCategoria/{id}")]
+        public IActionResult FiltrarCategoria(int id)
+        {
+            return Ok(MidiaRepository.FiltrarCategoria(id));
+        }
+
         /// <summary>
         /// Busca todas as mídias de um determinado mês
         /// </summary>

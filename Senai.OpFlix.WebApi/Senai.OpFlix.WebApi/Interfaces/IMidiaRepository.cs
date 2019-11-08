@@ -14,6 +14,8 @@ namespace Senai.OpFlix.WebApi.Interfaces
         /// <returns>Retorna uma lista de mídias</returns>
         List<Midias> Listar();
 
+        List<Midias> FiltrarCategoria(int id);
+
         /// <summary>
         /// Busca todas as mídias de um determinado mês
         /// </summary>
