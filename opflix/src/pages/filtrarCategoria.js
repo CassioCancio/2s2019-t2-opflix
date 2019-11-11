@@ -1,17 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Text, View, AsyncStorage, Picker, TouchableOpacity, Image } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
 
 class Main extends Component {
-
-    constructor() {
-        super();
-        this.state = {
-            midias: [],
-            categorias: [],
-            PickerValueHolder: "",
-        };
-    }
 
     static navigationOptions = {
         tabBarIcon: () => (
@@ -22,16 +13,26 @@ class Main extends Component {
         )
     }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            midias: [],
+            categorias: [],
+            valorSelecionado: "",
+        };
+    }
+
     componentDidMount() {
         this._carregarCategorias();
         this._carregarProjetos();
+        console.warn(this.state.categorias)
     }
 
     _carregarProjetos = async () => {
         try {
             let token = await AsyncStorage.getItem('opflix-token');
 
-            await fetch('http://192.168.4.96:5000/api/midias/filtrarCategoria/', {
+            await fetch('http://192.168.4.96:5000/api/midias/filtrarCategoria/' + this.state.valorSelecionado, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -41,47 +42,45 @@ class Main extends Component {
                 .then(resposta => resposta.json())
                 .then(data => this.setState({ midias: data }))
         } catch (error) {
+            console.warn(error)
         }
     };
 
     _carregarCategorias = async () => {
-        try {
-            let token = await AsyncStorage.getItem('opflix-token');
-
-            await fetch('http://192.168.4.96:5000/api/categorias/', {
-                method: 'GET',
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": 'Bearer ' + token
-                },
-            })
-                .then(resposta => resposta.json())
-                .then(data => this.setState({ categorias: data }))
-        } catch (error) {
-        }
-    };
-
+        await fetch('http://192.168.4.96:5000/api/categorias', {
+            headers: {
+                "Accept": "application/json",
+                "Authorization": "Bearer " + await AsyncStorage.getItem('opflix-token')
+            },
+        })
+            .then(resposta => resposta.json())
+            .then(data => this.setState({ categorias: data }))
+            .catch(erro => console.warn(erro));
+    }
     render() {
         return (
-            <Fragment>
-                <Picker
-                    selectedValue={this.state.PickerValueHolder}
-                    onValueChange={(itemValue, itemIndex) => this.setState({ PickerValueHolder: itemValue })} >
-                    {this.state.categorias.map((item, idCategoria) => (
-                        <Picker.Item label={item.idCategoria} value={item.nomeCategoria} key={idCategoria} />)
-                    )}
-                </Picker>
-                <TouchableOpacity onPress={this._carregarProjetos}>
-                    <Text>Filtrar</Text>
-                </TouchableOpacity>
+            <ScrollView>
+
 
                 <Text></Text>
                 <Text>Filtrar por Categoria</Text>
+
+                <Picker
+                    selectedValue={this.state.valorSelecionado}
+                    onValueChange={(itemValue, itemIndex) => {
+                        this.setState({ valorSelecionado: itemValue })
+                        this._carregarProjetos()
+                    }}  >
+                    <Picker.item label="Todas categorias" value="" selectedValue />
+                    {this.state.categorias.map((item, idCategoria) => (
+                        <Picker.Item label={item.nomeCategoria} value={item.idCategoria} key={idCategoria} />)
+                    )}
+                </Picker>
+
                 <Text></Text>
-                <FlatList
-                    data={this.state.midias}
-                    keyExtractor={item => item.idMidia}
-                    renderItem={({ item }) => (
+
+                <View>
+                    {this.state.midias.map((item, idMidia) => (        
                         <View>
                             <Text>Título: {item.titulo}</Text>
                             <Text>Tipo: {item.idTipoNavigation.tipoNome}</Text>
@@ -94,9 +93,10 @@ class Main extends Component {
                             <Text></Text>
                             <Text></Text>
                         </View>
-                    )}
-                />
-            </Fragment>
+                ))}
+                </View>
+                
+            </ScrollView >
         );
     }
 }

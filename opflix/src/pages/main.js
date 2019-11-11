@@ -40,7 +40,6 @@ class Main extends Component {
         .then(data => this.setState({ midias: data }))
     } catch (error) {
     }
-
   };
 
   render() {

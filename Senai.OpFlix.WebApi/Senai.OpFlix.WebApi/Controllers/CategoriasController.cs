@@ -14,7 +14,7 @@ namespace Senai.OpFlix.WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    [Authorize(Roles = "ADMINISTRADOR")]
+    [Authorize]
     public class CategoriasController : ControllerBase
     {
         private ICategoriaRepository CategoriaRepository { get; set; }
