@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 
-import {Text, TextInput, View, TouchableOpacity, AsyncStorage} from 'react-native';
+import {Text, TextInput, View, TouchableOpacity, AsyncStorage, Image} from 'react-native';
 
 class SignIn extends Component{
 
+    static navigationOptions = {
+        header: null
+    }
     
     constructor() {
         super();
@@ -41,12 +44,45 @@ class SignIn extends Component{
 
     render () {
         return(
-            <View>
+            <View style={{
+                backgroundColor: "#005DFF"
+              }}>
+            <View style={{
+                width: "80%",
+                marginLeft: "10%",
+                paddingTop: "10%",
+                paddingLeft: "5%",
+                paddingRight: "5%",
+                marginRight: "10%",
+                marginTop: "17.5%",
+                marginBottom: "17.5%",
+                height: "80%",
+                borderRadius: 15,
+                backgroundColor: "#fff",
+                borderWidth: 0.75, 
+                borderColor: "#000",
+              }}>
+                <Image fadeDuration={0} source={require('../img/icone.png')}
+            style={{
+              width: "100%",
+              height: 82.5,
+              resizeMode: 'contain',
+              marginBottom: 35
+            }}
+          />
+                <Image fadeDuration={0} source={require('../img/Titulo.png')}
+            style={{
+              width: "100%",
+              height: 40,
+              resizeMode: 'contain'
+            }}
+          />
                 <TextInput placeholder="email" onChangeText={email => this.setState({email})}/>
                 <TextInput placeholder="senha" onChangeText={senha => this.setState({senha})}/>
                 <TouchableOpacity onPress={this._realizarLogin}>
                     <Text>Login</Text>
                 </TouchableOpacity>
+            </View>
             </View>
         )
     }

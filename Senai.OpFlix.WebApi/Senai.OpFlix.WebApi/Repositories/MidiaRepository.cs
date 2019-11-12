@@ -25,7 +25,7 @@ namespace Senai.OpFlix.WebApi.Repositories
         {
             using (OpflixContext ctx = new OpflixContext())
             {
-                return ctx.Midias.Where(x => x.DataLancamento.Month == mes).ToList();
+                return ctx.Midias.Include(x => x.IdCategoriaNavigation).Include(x => x.IdClassificacaoNavigation).Include(x => x.IdTipoNavigation).Include(x => x.IdVeiculoNavigation).Where(x => x.DataLancamento.Month == mes).ToList();
             }
         }
 

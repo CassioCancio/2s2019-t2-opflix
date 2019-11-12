@@ -10,7 +10,7 @@ import SignInScreen from './pages/signin';
 const AuthStack = createStackNavigator ({
   Sign: {
     screen: SignInScreen
-  }
+  },
 });
 
   const MainNavigator = createBottomTabNavigator(
@@ -30,11 +30,11 @@ const AuthStack = createStackNavigator ({
     tabBarOptions: {
       showIcon: true,
       showLabel: false,
-      inactiveBackgroundColor: '#3780FF',
-      activeBackgroundColor: '#005DFF',
-      inactiveTintColor:'#FFFFFF',
-      activeTintColor:'#FFFFFF',
+      inactiveBackgroundColor: '#fff',
+      activeBackgroundColor: '#ddd',
       style: {
+        borderTopWidth: 0.9, 
+        borderTopColor: "#000",
         width: '100%',
         height: 50,
       },

@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { Text, View, AsyncStorage, Picker, TouchableOpacity, Image } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
 
 class Main extends Component {
-  
+
   static navigationOptions = {
     tabBarIcon: () => (
-      <Image 
-        source = {require('../img/home-512.png')}
-        style={{width: 25, height: 25, tintColor: 'white'}}
+      <Image
+        source={require('../img/home-512.png')}
+        style={{ width: 25, height: 25, tintColor: '#005DFF' }}
       />
     )
   }
@@ -45,27 +45,37 @@ class Main extends Component {
   render() {
     return (
       <Fragment>
-        <Text></Text>
-        <Text>Projetos cadastrados</Text>
-        <Text></Text>
-        <FlatList
-          data={this.state.midias}
-          keyExtractor={item => item.idMidia}
-          renderItem={({ item }) => (
-            <View>
-              <Text>Título: {item.titulo}</Text>
-              <Text>Tipo: {item.idTipoNavigation.tipoNome}</Text>
-              <Text>Veiculo: {item.idVeiculoNavigation.nomeVeiculo}</Text>
-              <Text>Id: {item.idMidia}</Text>
-              <Text>Sinopse: {item.sinopse}</Text>
-              <Text>Data de Lançamento: {item.dataLancamento}</Text>
-              <Text>Categoria: {item.idCategoriaNavigation.nomeCategoria}</Text>
-              <Text>Classificação Indicativa: {item.idClassificacaoNavigation.nomeClassificacao}</Text>
-              <Text></Text>
-              <Text></Text>
-            </View>
-          )}
-        />
+        <View style={{ backgroundColor: 'white', paddingTop: 8.75, paddingBottom: 8.75, height: 50, shadowColor: "black", borderBottomWidth: 0.9, borderBottomColor: "#000" }}>
+          <Image fadeDuration={0} source={require('../img/titulologo.png') }
+            style={{
+              width: 205,
+              height: 32.5,
+              resizeMode: 'contain'
+            }}
+          />
+        </View>
+        <ScrollView>
+          <Text>Projetos cadastrados</Text>
+          <Text></Text>
+          <FlatList
+            data={this.state.midias}
+            keyExtractor={item => item.idMidia}
+            renderItem={({ item }) => (
+              <View>
+                <Text>Título: {item.titulo}</Text>
+                <Text>Tipo: {item.idTipoNavigation.tipoNome}</Text>
+                <Text>Veiculo: {item.idVeiculoNavigation.nomeVeiculo}</Text>
+                <Text>Id: {item.idMidia}</Text>
+                <Text>Sinopse: {item.sinopse}</Text>
+                <Text>Data de Lançamento: {item.dataLancamento}</Text>
+                <Text>Categoria: {item.idCategoriaNavigation.nomeCategoria}</Text>
+                <Text>Classificação Indicativa: {item.idClassificacaoNavigation.nomeClassificacao}</Text>
+                <Text></Text>
+                <Text></Text>
+              </View>
+            )}
+          />
+        </ScrollView>
       </Fragment>
     );
   }
