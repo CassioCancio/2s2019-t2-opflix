@@ -24,7 +24,23 @@ class Main extends Component {
 
     componentDidMount() {
         this._carregarCategorias();
+        this._carregarProjetos();
         console.warn(this.state.categorias)
+    }
+
+    _listaVazia = () => {
+        return (
+            //View to show when list is empty
+            <View>
+                <Text style={{ textAlign: 'center' }}>Nenhum filme encontrado nessa categoria.</Text>
+            </View>
+        );
+    };
+
+    getParsedDate(date) {
+        date = String(date).split('T');
+        var days = String(date[0]).split('-');
+        return [parseInt(days[2]), "-", parseInt(days[1]), "-", parseInt(days[0])];
     }
 
     _carregarProjetos = async () => {
@@ -68,43 +84,62 @@ class Main extends Component {
                             resizeMode: 'contain'
                         }}
                     />
+                    <TouchableOpacity onPress={this._Logout} style={{ width: "10%", marginLeft: "82.5%", position: "absolute", top: 0 }}><Text style={{ fontSize: 35, color: "#005DFF" }}>Sair</Text></TouchableOpacity>
                 </View>
 
                 <ScrollView>
-                    <Text></Text>
-                    <Text>Filtrar por Categoria</Text>
+                    <Text style={{ fontSize: 27.5, textAlign: "center", color: "#005DFF", marginTop: 12 }}>Filtrar por categoria</Text>
 
+                    <View  style={{
+                  width: "90%",
+                  marginLeft: "5%",
+                  marginTop: "4%",
+                  marginBottom: "4%",
+                  marginRight: "5%",
+                  backgroundColor: "#eee",
+                  borderRadius: 15,
+                  borderColor: "black",
+                  borderWidth: 0.5,
+                }}>
                     <Picker
                         selectedValue={this.state.valorSelecionado}
                         onValueChange={(itemValue, itemIndex) => {
                             this.setState({ valorSelecionado: itemValue })
                             this._carregarProjetos()
                         }}  >
-                        <Picker.item label="Selecione uma categoria" value="0" />
+                        <Picker.item label="Todos" value="" />
                         {this.state.categorias.map((item, idCategoria) => (
                             <Picker.Item label={item.nomeCategoria} value={item.idCategoria} key={idCategoria} />)
                         )}
                     </Picker>
-
-
-                    <View>
-                        {this.state.midias.map((item, idMidia) => (
-                            <View>
-                                <Text>Título: {item.titulo}</Text>
-                                <Text>Tipo: {item.idTipoNavigation.tipoNome}</Text>
-                                <Text>Veiculo: {item.idVeiculoNavigation.nomeVeiculo}</Text>
-                                <Text>Id: {item.idMidia}</Text>
-                                <Text>Sinopse: {item.sinopse}</Text>
-                                <Text>Data de Lançamento: {item.dataLancamento}</Text>
-                                <Text>Categoria: {item.idCategoriaNavigation.nomeCategoria}</Text>
-                                <Text>Classificação Indicativa: {item.idClassificacaoNavigation.nomeClassificacao}</Text>
-                                <Text></Text>
-                                <Text></Text>
-                            </View>
-                        ))}
                     </View>
 
-                </ScrollView >
+                    <FlatList
+                        data={this.state.midias}
+                        keyExtractor={item => item.idMidia}
+                        ListEmptyComponent={this._listaVazia}
+                        renderItem={({ item }) => (
+                            <View>
+                                <View style={{
+                                    width: "90%",
+                                    marginLeft: "5%",
+                                    marginRight: "5%",
+                                    backgroundColor: "#eee",
+                                    borderRadius: 20,
+                                    padding: 10,
+                                    borderColor: "black",
+                                    borderWidth: 0.5,
+                                }}>
+                                    <Text style={{ fontSize: 20, textAlign: "center", fontWeight: "bold" }}>{item.idTipoNavigation.tipoNome} - {item.titulo}</Text>
+                                    <Text style={{ fontSize: 20, textAlign: "center", marginTop: 3 }}>{this.getParsedDate(item.dataLancamento)}</Text>
+                                    <Text style={{ fontSize: 15, textAlign: "center", marginTop: 5, marginBottom: 7.5 }}>{item.idVeiculoNavigation.nomeVeiculo} - {item.idCategoriaNavigation.nomeCategoria} - {item.idClassificacaoNavigation.nomeClassificacao}</Text>
+                                    <Text style={{ fontSize: 15, textAlign: "center" }}>{item.sinopse}</Text>
+                                </View>
+                                <Text></Text>
+                            </View>
+                        )}
+                    />
+                </ScrollView>
             </Fragment>
         );
     }

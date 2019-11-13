@@ -57,6 +57,12 @@ namespace Senai.OpFlix.WebApi.Controllers
             return Ok(MidiaRepository.BuscarPorMes(mes));
         }
 
+        [HttpGet("BuscarPorMes")]
+        public IActionResult Todos()
+        {
+            return Ok(MidiaRepository.Listar());
+        }
+
         /// <summary>
         /// Busca todas as mídias de uma determinada plataforma/veículo
         /// </summary>
