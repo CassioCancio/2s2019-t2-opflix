@@ -9,7 +9,7 @@ class Main extends Component {
     this.state = {
       midias: [],
       temas: [],
-      MesEscolhido: ""
+      MesEscolhido: " "
     };
   }
 
@@ -51,14 +51,29 @@ class Main extends Component {
 
   };
 
+  
+  _Logout = async (event) => {
+    AsyncStorage.removeItem('opflix-token');
+    this.props.navigation.navigate('AuthStack')};
+    
   _listaVazia = () => {
-    return (
-      //View to show when list is empty
-      <View>
-        <Text style={{ textAlign: 'center' }}>Nenhum filme encontrado nessa data.</Text>
-      </View>
+    let teste = this.state.MesEscolhido;
+
+    if(teste == " "){
+        return (
+            <View>
+            <Text style={{ textAlign: 'center' }}></Text>
+        </View>
+        );
+    }else{
+        return (
+            <View>
+            <Text style={{ textAlign: 'center' }}>Nenhum filme encontrado nessa categoria.</Text>
+        </View>
     );
-  };
+}
+};
+
 
   render() {
     return (

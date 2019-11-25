@@ -43,13 +43,11 @@ class SignIn extends Component {
                 if (data.token != null) {
                     this._irParaHome(data.token)
                 } else {
-                    this.setState({ erro: "Usuário ou senha inválidos" }),
-                        console.warn(erro)
+                    this.setState({ erro: "Usuário ou senha inválidos" })
                 }
             })
             .catch(erro => {
-                this.setState({ erro: "Usuário ou senha inválidos" }),
-                    console.warn(erro)
+                this.setState({ erro: "Usuário ou senha inválidos" })
             })
     }
 

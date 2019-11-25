@@ -84,7 +84,7 @@ class EditorLancamento extends Component {
         this.listaVeiculo();
     }
     tabelaAtualizada = () => {
-        fetch('http://localhost:52798/api/midias', {
+        fetch('http://192.168.4.96:5000/api/midias', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": 'Bearer ' + localStorage.getItem('usuario-opflix')
@@ -94,7 +94,7 @@ class EditorLancamento extends Component {
             .then(data => this.setState({ lista: data }));
     }
     listaCategoria = () => {
-        fetch('http://localhost:52798/api/categorias', {
+        fetch('http://192.168.4.96:5000/api/categorias', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": 'Bearer ' + localStorage.getItem('usuario-opflix')
@@ -104,7 +104,7 @@ class EditorLancamento extends Component {
             .then(data => this.setState({ listaCategoria: data }));
     }
     listaClassificacao = () => {
-        fetch('http://localhost:52798/api/classificacoes', {
+        fetch('http://192.168.4.96:5000/api/classificacoes', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": 'Bearer ' + localStorage.getItem('usuario-opflix')
@@ -114,7 +114,7 @@ class EditorLancamento extends Component {
             .then(data => this.setState({ listaClassificacao: data }));
     }
     listaVeiculo = () => {
-        fetch('http://localhost:52798/api/veiculos', {
+        fetch('http://192.168.4.96:5000/api/veiculos', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": 'Bearer ' + localStorage.getItem('usuario-opflix')
@@ -124,7 +124,7 @@ class EditorLancamento extends Component {
             .then(data => this.setState({ listaVeiculo: data }));
     }
     efetuarCadastro = (event) => {
-        Axios.post("http://localhost:52798/api/midias", {
+        Axios.post("http://192.168.4.96:5000/api/midias", {
             titulo: this.state.titulo,
             sinopse: this.state.sinopse,
             tempoDuracao: this.state.tempoDuracao,

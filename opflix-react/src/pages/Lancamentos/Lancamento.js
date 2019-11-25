@@ -29,7 +29,7 @@ class Lancamento extends Component {
     }
 
     listaAtualizada = () => {
-        fetch('http://localhost:52798/api/midias', {
+        fetch('http://192.168.4.96:5000:5000:52798/api/midias', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": 'Bearer ' + localStorage.getItem('usuario-opflix')

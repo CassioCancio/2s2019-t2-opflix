@@ -33,7 +33,7 @@ class Categoria extends Component {
     }
 
     listaAtualizada = () => {
-        fetch('http://localhost:52798/api/categorias', {
+        fetch('http://192.168.4.96:5000/api/categorias', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": 'Bearer ' + localStorage.getItem('usuario-opflix')
@@ -45,7 +45,7 @@ class Categoria extends Component {
 
     adicionaItem = (event) => {
         console.log(this.state.nome);
-        fetch('http://localhost:52798/api/categorias', {
+        fetch('http://192.168.4.96:5000/api/categorias', {
             method: "POST",
             body: JSON.stringify({ nomeCategoria: this.state.nome }),
             headers: {

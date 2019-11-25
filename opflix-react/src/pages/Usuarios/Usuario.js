@@ -53,7 +53,7 @@ class Usuario extends Component {
     }
 
     efetuarCadastro = (event) => {
-        Axios.post("http://localhost:52798/api/usuarios", {
+        Axios.post("http://192.168.4.96:5000/api/usuarios", {
             email: this.state.email,
             nome: this.state.nome,
             TipoUsuario: this.state.tipousuario,
@@ -80,7 +80,7 @@ class Usuario extends Component {
     }
 
     listaAtualizada = () => {
-        fetch('http://localhost:52798/api/usuarios', {
+        fetch('http://192.168.4.96:5000/api/usuarios', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": 'Bearer ' + localStorage.getItem('usuario-opflix')
