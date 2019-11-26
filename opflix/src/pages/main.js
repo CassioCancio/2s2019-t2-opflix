@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Text, View, AsyncStorage, Picker, TouchableOpacity, Image } from 'react-native';
+import { Text, View, AsyncStorage, Picker, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import * as moment from 'moment'
 
@@ -19,11 +19,13 @@ class Main extends Component {
     this.state = {
       midias: [],
       temas: [],
+      loading: true
     };
   }
 
   componentDidMount() {
     this._carregarProjetos();
+    console.disableYellowBox = true;
   }
 
   _listaVazia = () => {
@@ -47,7 +49,7 @@ class Main extends Component {
         },
       })
         .then(resposta => resposta.json())
-        .then(data => this.setState({ midias: data }))
+        .then(data => this.setState({ loading: false, midias: data }))
     } catch (error) {
     }
   };
@@ -79,12 +81,13 @@ class Main extends Component {
         <ScrollView>
           <Text style={{ fontSize: 27.5, textAlign: "center", color: "#005DFF", marginTop: 12 }}>Projetos cadastrados</Text>
           <Text></Text>
+          {this.state.loading ? <ActivityIndicator size="large" color="gray"/> :
           <FlatList
-            data={this.state.midias}
-            keyExtractor={item => item.idMidia}
-            ListEmptyComponent={this._listaVazia}
-            renderItem={({ item }) => (
-              <View>
+          data={this.state.midias}
+          keyExtractor={item => item.idMidia}
+          ListEmptyComponent={this._listaVazia}
+          renderItem={({ item }) => (
+            <View>
                 <View style={{
                   width: "90%",
                   marginLeft: "5%",
@@ -103,7 +106,8 @@ class Main extends Component {
                 <Text></Text>
               </View>
             )}
-          />
+            />
+          }
         </ScrollView>
       </Fragment>
     );
