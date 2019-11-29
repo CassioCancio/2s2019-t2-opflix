@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Text, View, AsyncStorage, Picker, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
+import { Text, View, AsyncStorage, Picker, TouchableOpacity, Image, ActivityIndicator, StatusBar } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import * as moment from 'moment'
 
@@ -68,6 +68,13 @@ class Main extends Component {
   render() {
     return (
       <Fragment>
+        <StatusBar
+                    barStyle="dark-content"
+                    hidden={false}
+                    backgroundColor="#fff"
+                    translucent={false}
+                    networkActivityIndicatorVisible={true}
+                />
         <View style={{ backgroundColor: 'white', paddingTop: 8.75, paddingBottom: 8.75, height: 50, shadowColor: "black", borderBottomWidth: 0.9, borderBottomColor: "#000" }}>
           <Image fadeDuration={0} source={require('../img/titulologo.png')}
             style={{

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Text, TextInput, View, TouchableOpacity, AsyncStorage, Image } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity, AsyncStorage, Image, StatusBar } from 'react-native';
 
 class SignIn extends Component {
 
@@ -65,8 +65,16 @@ class SignIn extends Component {
     render() {
         return (
             <View style={{
-                backgroundColor: "#005DFF"
+                backgroundColor: "#005DFF",
+                height: "100%"
             }}>
+                <StatusBar
+                    barStyle="light-content"
+                    hidden={false}
+                    backgroundColor="#005DFF"
+                    translucent={false}
+                    networkActivityIndicatorVisible={true}
+                />
                 <View style={{
                     width: "80%",
                     marginLeft: "10%",

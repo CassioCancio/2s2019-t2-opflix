@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Text, View, AsyncStorage, Picker, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
+import { Text, View, AsyncStorage, Picker, TouchableOpacity, Image, ActivityIndicator, StatusBar } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 
 class Main extends Component {
@@ -84,55 +84,64 @@ class Main extends Component {
 
     _Logout = async (event) => {
         AsyncStorage.removeItem('opflix-token');
-        this.props.navigation.navigate('AuthStack')};
-    
-        render() {
-            return (
-                <Fragment>
-                    <View style={{ backgroundColor: 'white', paddingTop: 8.75, paddingBottom: 8.75, height: 50, shadowColor: "black", borderBottomWidth: 0.9, borderBottomColor: "#000" }}>
-                        <Image fadeDuration={0} source={require('../img/titulologo.png')}
-                            style={{
-                                width: 205,
-                                height: 32.5,
-                                resizeMode: 'contain'
-                            }}
-                        />
-                        <TouchableOpacity onPress={this._Logout} style={{ width: "10%", marginLeft: "82.5%", position: "absolute", top: 0 }}><Text style={{ fontSize: 35, color: "#005DFF" }}>Sair</Text></TouchableOpacity>
+        this.props.navigation.navigate('AuthStack')
+    };
+
+    render() {
+        return (
+            <Fragment>
+                <StatusBar
+                    barStyle="dark-content"
+                    hidden={false}
+                    backgroundColor="#fff"
+                    translucent={false}
+                    networkActivityIndicatorVisible={true}
+                />
+                <View style={{ backgroundColor: 'white', paddingTop: 8.75, paddingBottom: 8.75, height: 50, shadowColor: "black", borderBottomWidth: 0.9, borderBottomColor: "#000" }}>
+                    <Image fadeDuration={0} source={require('../img/titulologo.png')}
+                        style={{
+                            width: 205,
+                            height: 32.5,
+                            resizeMode: 'contain'
+                        }}
+                    />
+                    <TouchableOpacity onPress={this._Logout} style={{ width: "10%", marginLeft: "82.5%", position: "absolute", top: 0 }}><Text style={{ fontSize: 35, color: "#005DFF" }}>Sair</Text></TouchableOpacity>
+                </View>
+
+                <ScrollView>
+                    <Text style={{ fontSize: 27.5, textAlign: "center", color: "#005DFF", marginTop: 12 }}>Filtrar por categoria</Text>
+                    <View style={{
+                        width: "90%",
+                        marginLeft: "5%",
+                        marginTop: "4%",
+                        marginBottom: "4%",
+                        marginRight: "5%",
+                        backgroundColor: "#eee",
+                        borderRadius: 15,
+                        borderColor: "black",
+                        borderWidth: 0.5,
+                    }}>
+                        <Picker
+                            selectedValue={this.state.valorSelecionado}
+                            onValueChange={(itemValue, itemIndex) => {
+                                this.setState({ valorSelecionado: itemValue })
+                                this.setState({ loading: true })
+                                this._carregarProjetos()
+                            }}  >
+                            <Picker.item label="Todos" value="" />
+                            {this.state.categorias.map((item, idCategoria) => (
+                                <Picker.Item label={item.nomeCategoria} value={item.idCategoria} key={idCategoria} />)
+                            )}
+                        </Picker>
                     </View>
 
-                    <ScrollView>
-                        <Text style={{ fontSize: 27.5, textAlign: "center", color: "#005DFF", marginTop: 12 }}>Filtrar por categoria</Text>
-                        <View style={{
-                            width: "90%",
-                            marginLeft: "5%",
-                            marginTop: "4%",
-                            marginBottom: "4%",
-                            marginRight: "5%",
-                            backgroundColor: "#eee",
-                            borderRadius: 15,
-                            borderColor: "black",
-                            borderWidth: 0.5,
-                        }}>
-                            <Picker
-                                selectedValue={this.state.valorSelecionado}
-                                onValueChange={(itemValue, itemIndex) => {
-                                    this.setState({ valorSelecionado: itemValue })
-                                    this._carregarProjetos()
-                                }}  >
-                                <Picker.item label="Todos" value="" />
-                                {this.state.categorias.map((item, idCategoria) => (
-                                    <Picker.Item label={item.nomeCategoria} value={item.idCategoria} key={idCategoria} />)
-                                )}
-                            </Picker>
-                        </View>
-                                
-                        {this.state.loading ? <ActivityIndicator size="large" color="gray"/> :
+                    {this.state.loading ? <ActivityIndicator size="large" color="gray" /> :
                         <FlatList
-                        data={this.state.midias}
-                        keyExtractor={item => item.idMidia}
-                        ListEmptyComponent={this._listaVazia}
-                        renderItem={({ item }) => (
-                            <View>
+                            data={this.state.midias}
+                            keyExtractor={item => item.idMidia}
+                            ListEmptyComponent={this._listaVazia}
+                            renderItem={({ item }) => (
+                                <View>
                                     <View style={{
                                         width: "90%",
                                         marginLeft: "5%",
@@ -151,11 +160,11 @@ class Main extends Component {
                                     <Text></Text>
                                 </View>
                             )}
-                            />
-                        }
-                    </ScrollView>
-                </Fragment>
-            );
-        }
+                        />
+                    }
+                </ScrollView>
+            </Fragment>
+        );
     }
-    export default Main;
+}
+export default Main;
