@@ -13,6 +13,7 @@ class Nav extends Component {
                         <h4>Opflix</h4>
                         <Link to="/" className="linkNav">Home</Link>
                         <Link to="/lancamentos" className="linkNav">Lançamentos</Link>
+                        <Link to="/localizacao" className="linkNav">Localização</Link>
                         {/* <Link to="/favoritos" className="linkNav">Lançamentos</Link> */}
                     </div>
                     <div className="flex">

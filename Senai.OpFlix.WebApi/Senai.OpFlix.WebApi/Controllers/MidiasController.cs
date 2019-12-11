@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Senai.OpFlix.WebApi.Domains;
 using Senai.OpFlix.WebApi.Interfaces;
 using Senai.OpFlix.WebApi.Repositories;
+using Senai.OpFlix.WebApi.ViewModels;
 
 namespace Senai.OpFlix.WebApi.Controllers
 {
@@ -19,9 +20,12 @@ namespace Senai.OpFlix.WebApi.Controllers
     {
         private IMidiaRepository MidiaRepository { get; set; }
 
+        private ILocalizacaoRepository LocalizacaoRepository { get; set; }
+
         public MidiasController()
         {
             MidiaRepository = new MidiaRepository();
+            LocalizacaoRepository = new LocalizacaoRepository();
         }
 
         /// <summary>
@@ -81,12 +85,37 @@ namespace Senai.OpFlix.WebApi.Controllers
         /// <returns>Retorna uma verificação</returns>
         [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPost]
-        public IActionResult Cadastrar(Midias midia)
+        public IActionResult Cadastrar(MidiaViewModel midiaViewModel)
         {
+            Midias midia = new Midias();
+            Localizacoes localizacao = new Localizacoes();
+
+            midia.Titulo = midiaViewModel.Titulo;
+            midia.Sinopse = midiaViewModel.Sinopse;
+            midia.TempoDuracao = midiaViewModel.TempoDuracao;
+            midia.DataLancamento = midiaViewModel.DataLancamento;
+            midia.IdClassificacao = midiaViewModel.IdClassificacao;
+            midia.IdCategoria = midiaViewModel.IdCategoria;
+            midia.IdVeiculo = midiaViewModel.IdVeiculo;
+            midia.IdTipo = midiaViewModel.IdTipo;
+
+            localizacao.Latitude = midiaViewModel.Latitude;
+            localizacao.Longitude = midiaViewModel.Longitude;
+            localizacao.Midia = midia;
+
             try
             {
                 MidiaRepository.Cadastrar(midia);
-                return Ok();
+                try
+                {
+                    LocalizacaoRepository.Cadastrar(localizacao);
+
+                    return Ok();
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(new { mensagem = e.Message });
+                }
             }
             catch (Exception ex)
             {
@@ -133,5 +162,6 @@ namespace Senai.OpFlix.WebApi.Controllers
             MidiaRepository.Deletar(id);
             return Ok();
         }
+        
     }
 }

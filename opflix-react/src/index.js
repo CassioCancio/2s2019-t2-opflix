@@ -13,6 +13,7 @@ import EditorLancamento from './pages/EditorLancamento/EditorLancamento';
 import SelecaoADM from './pages/SelecaoADM/Selecao';
 import Usuario from './pages/Usuarios/Usuario';
 import Cadastro from './pages/Cadastro/Cadastro';
+import Localizacao from './pages/Localizacao/Localizacao';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -78,6 +79,7 @@ const routing = (
                 <Route exact path='/' component={Home} />
                 <PermissaoADM path='/categorias' component={Categoria} />
                 <PermissaoComum path='/lancamentos' component={Lancamentos} />
+                <PermissaoComum path='/localizacao' component={Localizacao} />
                 <PermissaoADM path='/editor' component={EditorLancamento} />
                 <RotaPrivada path='/selecao' component={SelecaoADM} />
                 <PermissaoADM path='/usuarios' component={Usuario} />

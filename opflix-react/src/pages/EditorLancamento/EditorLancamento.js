@@ -39,6 +39,8 @@ class EditorLancamento extends Component {
             sinopse: '',
             tempoDuracao: '',
             Datalancamento: '',
+            Latitude: "",
+            Longitude: "",
             idClassificacao: '',
             idCategoria: '',
             idVeiculo: '',
@@ -61,6 +63,18 @@ class EditorLancamento extends Component {
         this.setState({ Datalancamento: event.target.value })
         console.log(this.state);
     }
+
+
+    atualizaEstadoLatitude = (event) => {
+        this.setState({ Latitude: event.target.value })
+        console.log(this.state);
+    }
+    atualizaEstadoLongitude = (event) => {
+        this.setState({ Longitude: event.target.value })
+        console.log(this.state);
+    }
+
+
     atualizaEstadoCategoria = (event) => {
         this.setState({ idCategoria: event.target.value })
         console.log(this.state);
@@ -133,6 +147,8 @@ class EditorLancamento extends Component {
             idCategoria: this.state.idCategoria,
             idVeiculo: this.state.idVeiculo,
             idTipo: this.state.idTipo,
+            latitude: this.state.Latitude,
+            longitude: this.state.Longitude,
         },
         {
             headers: {
@@ -144,13 +160,12 @@ class EditorLancamento extends Component {
             .then(response => {
                 if (response.status === 200) {
                     console.log('Ok');
-                    this.props.history.push('/usuarios');
                 } else {
                     console.log('vish deu ruim');
                 }
             })
             .catch(erro => {
-                this.setState({ erro: "E-mail ou senha inválidos" });
+                this.setState({ erro: "" });
                 console.log(erro);
             });
     }
@@ -192,13 +207,13 @@ class EditorLancamento extends Component {
                 </table>
 
                 <h1>Cadastro de Lançamentos</h1>
-                <form method="POST" onSubmit={this.efetuarCadastro} className="arrumarForm">
+                <form onSubmit={this.efetuarCadastro} className="arrumarForm">
                     <div className="item">
                         <input
                             className="input__login"
                             onInput={this.atualizaEstadoTitulo}
                             type="text"
-                            name="username"
+                            name="titulo"
                             placeholder="Título"
                             id="login__email"
                         />
@@ -208,7 +223,7 @@ class EditorLancamento extends Component {
                             className="input__login"
                             onInput={this.atualizaEstadoSinopse}
                             type="text"
-                            name="username"
+                            name="sinopse"
                             placeholder="Sinopse"
                             id="login__email"
                         />
@@ -218,7 +233,7 @@ class EditorLancamento extends Component {
                             className="input__login"
                             onInput={this.atualizaEstadoTempo}
                             type="number"
-                            name="password"
+                            name="tempo"
                             placeholder="Tempo de Duração"
                             id="login__password"
                         />
@@ -228,10 +243,30 @@ class EditorLancamento extends Component {
                             className="input__login"
                             onInput={this.atualizaEstadoDataLancamento}
                             type="date"
-                            name="password"
+                            name="data"
                             placeholder="Data de lançamento"
                             id="login__password"
                         />
+
+
+                        <input
+                            className="input__login"
+                            onInput={this.atualizaEstadoLatitude}
+                            type="text"
+                            name="latitude"
+                            placeholder="Latitude"
+                            id="login__password"
+                        />
+                        <input
+                            className="input__login"
+                            onInput={this.atualizaEstadoLongitude}
+                            type="text"
+                            name="longitude"
+                            placeholder="Longitude"
+                            id="login__password"
+                        />
+
+
                     </div>
                     <div>
                         <select onInput={this.atualizaEstadoCategoria}>
@@ -272,7 +307,6 @@ class EditorLancamento extends Component {
                     <div className="item">
                     <button 
                     className="btn btn__login" 
-                    onClick={this.efetuarCadastro}
                     id="btn__login">
                         Fazer Cadastro
                     </button>

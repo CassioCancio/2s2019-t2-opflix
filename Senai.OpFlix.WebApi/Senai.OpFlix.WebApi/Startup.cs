@@ -43,8 +43,6 @@ namespace Senai.OpFlix.WebApi
 
                     IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("opflix-chave-autenticacao")),
 
-                    ClockSkew = TimeSpan.FromMinutes(30),
-
                     ValidIssuer = "OpFlix.WebApi",
 
                     ValidAudience = "OpFlix.WebApi"

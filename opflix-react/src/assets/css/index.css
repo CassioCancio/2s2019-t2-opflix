@@ -13,6 +13,18 @@ h1{
   font-size: 3em;
 }
 
+.fixar{
+  position: fixed;
+  bottom: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .transform{
   text-transform: uppercase;
   font-size: 4em;
@@ -22,6 +34,7 @@ nav{
   display: flex;
   justify-content: space-between;
   position: fixed;
+  z-index: 5000;
   top: 0;
   height: 6vh;
   width: 100%;
@@ -66,7 +79,7 @@ nav > div > h4 {
 }
 
 .logoComum{
-  width: 10%;
+  width: 7%;
   margin-right: 3%;
 }
 
@@ -87,6 +100,12 @@ nav > div > h4 {
 .rodape{
   box-shadow: 1px 1px 8px rgb(93, 93, 93);
   text-align: center;
+}
+
+.fixar{
+  box-shadow: 1px 1px 8px rgb(93, 93, 93);
+  text-align: center;
+  width: 100%;
 }
 
 .Erro{
@@ -116,6 +135,24 @@ nav > div > h4 {
 }
 
 .rodape > div > div {
+  font-size: 1.1em;
+  width: 30%;
+  font-weight: bolder;
+}
+
+.fixar > p {
+  text-shadow: 1px 1px 1px rgb(49, 49, 49),
+  -1px 1px 1px rgb(49, 49, 49),
+  1px -1px 1px rgb(49, 49, 49),
+  -1px -1px 1px rgb(49, 49, 49);
+  color: #005DFF;
+  font-size: 1.4em;
+  font-weight: bolder;
+  padding-top: 1vh;
+  margin-bottom: 0%
+}
+
+.fixar > div > div {
   font-size: 1.1em;
   width: 30%;
   font-weight: bolder;
